@@ -25,7 +25,7 @@ export const Hero = () => {
           </h1>
 
           <p className="mt-6 text-base md:text-lg text-primary-foreground/80 max-w-2xl leading-relaxed font-light">
-            Moai Tech is a Health Tech startup that creates innovative digital health products and partners with organizations to build tailored healthcare solutions.
+            We build and scale data-driven health tech platforms. From early-stage ideas to production systems in regulated environments.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
