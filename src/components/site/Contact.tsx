@@ -27,13 +27,13 @@ export const Contact = () => {
           </p>
 
           <div className="mt-10 space-y-4">
-            <a href="mailto:hello@moaitech.com" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
+            <a href="mailto:moaitechnology@gmail.com" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
               <span className="w-10 h-10 rounded-xl bg-secondary grid place-items-center">
                 <Mail className="w-4 h-4 text-primary" />
               </span>
-              <span className="font-medium">hello@moaitech.com</span>
+              <span className="font-medium">moaitechnology@gmail.com</span>
             </a>
-            <a href="#" aria-label="LinkedIn" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
+            <a href="https://www.linkedin.com/company/moaitechnology/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
               <span className="w-10 h-10 rounded-xl bg-secondary grid place-items-center">
                 <Linkedin className="w-4 h-4 text-primary" />
               </span>

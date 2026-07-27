@@ -1,9 +1,9 @@
 import { Reveal } from "@/components/Reveal";
 
 const team = [
-  { name: "Shan Ganegoda", role: "Co-Founder", initials: "SG" },
-  { name: "Shenal Ganegoda", role: "Co-Founder", initials: "SG" },
-  { name: "Janith Dissanayake", role: "Chief Growth Officer", initials: "JD" },
+  { name: "Shan Ganegoda", role: "CTO", image: "/founder-shan.png" },
+  { name: "Shenal Ganegoda", role: "COO", image: "/founder-shenal.png" },
+  { name: "Janith Dissanayake", role: "CGO", image: "/founder-janith.png" },
 ];
 
 export const About = () => {
@@ -23,8 +23,8 @@ export const About = () => {
           {team.map((m, i) => (
             <Reveal key={m.name} delay={i * 100}>
               <div className="h-full p-8 rounded-2xl bg-card border border-border shadow-soft hover:shadow-card transition-shadow text-center">
-                <div className="mx-auto w-24 h-24 rounded-full gradient-brand grid place-items-center text-primary-foreground text-2xl font-bold shadow-glow">
-                  {m.initials}
+                <div className="mx-auto w-24 h-24 rounded-full overflow-hidden shadow-glow">
+                  <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-primary">{m.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{m.role}</p>

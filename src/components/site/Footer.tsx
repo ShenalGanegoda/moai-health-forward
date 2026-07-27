@@ -1,18 +1,16 @@
-import { Activity } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
-const links = ["Home", "Products", "Services", "About", "Careers", "Contact"];
+const links = ["Home", "Products", "Services", "About", "Careers"];
 
 export const Footer = () => {
+  const location = useLocation();
+  const isKadapatha = location.pathname === "/products/kadapatha";
+
   return (
     <footer className="border-t-2 border-primary/20 bg-background">
       <div className="container mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
         <a href="#home" className="flex items-center gap-2">
-          <span className="grid place-items-center w-8 h-8 rounded-lg gradient-brand text-primary-foreground">
-            <Activity className="w-4 h-4" strokeWidth={2.5} />
-          </span>
-          <span className="font-bold text-lg tracking-tight text-foreground">
-            Moai <span className="text-gradient-brand">Tech</span>
-          </span>
+          <img src="/moai-logo.png" alt="Moai Tech" className="h-7 w-auto rounded-lg" />
         </a>
 
         <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
@@ -25,6 +23,16 @@ export const Footer = () => {
               {l}
             </a>
           ))}
+          {isKadapatha && (
+            <a
+              href="/kadapatha-privacy-policy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Privacy Policy
+            </a>
+          )}
         </nav>
 
         <p className="text-xs text-muted-foreground">© 2025 Moai Tech. All rights reserved.</p>
