@@ -13,7 +13,7 @@ export const Footer = () => {
           <img src="/moai-logo.png" alt="Moai Tech" className="h-7 w-auto rounded-lg" />
         </a>
 
-        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 w-full md:w-auto">
           {links.map((l) => (
             <a
               key={l}
