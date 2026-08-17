@@ -1,0 +1,48 @@
+name: Build & Commit Dist
+
+# Matches the pattern already working on the Lyra Nuwara Eliya project:
+# build on every push to main, then commit the built dist/ folder
+# straight back into main. Hostinger's Git integration deploys main
+# as-is into public_html; a manually-added .htaccess on the server
+# (not in this repo) rewrites all requests into /dist/.
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'dist/**' # don't re-trigger when we commit dist
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Commit and push dist folder
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git add -f dist/
+          git diff --cached --quiet || git commit -m "chore: update static build [skip ci]"
+          git push origin main
