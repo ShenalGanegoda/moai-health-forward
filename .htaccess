@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Send all requests to /dist (the built site committed by the GitHub Action)
+RewriteCond %{REQUEST_URI} !^/dist/
+RewriteRule ^(.*)$ /dist/$1 [L]
