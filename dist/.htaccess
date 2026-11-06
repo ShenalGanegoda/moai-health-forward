@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Serve real files and folders as-is
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Everything else is a React route (e.g. /products/kadapatha) -> index.html
+RewriteRule ^ /dist/index.html [L]
