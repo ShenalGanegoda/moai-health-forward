@@ -33,6 +33,16 @@ export const Footer = () => {
               Privacy Policy
             </a>
           )}
+          {isKadapatha && (
+            <a
+              href="/kadapatha-terms.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Terms and Conditions
+            </a>
+          )}
         </nav>
 
         <p className="text-xs text-muted-foreground">© 2025 Moai Tech. All rights reserved.</p>
